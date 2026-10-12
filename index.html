@@ -1,4 +1,353 @@
-<!DOCTYPE html><html lang="fr">
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EM TOP UP SHOP - Recharges & Service Dollars</title>
+  <style>
+    :root {
+      --primary-color: #0f172a;
+      --accent-color: #2563eb;
+      --success-color: #16a34a;
+      --bg-color: #f8fafc;
+      --card-bg: #ffffff;
+      --text-color: #334155;
+    }
+
+    body {
+      font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    h1 {
+      color: var(--primary-color);
+      font-size: 28px;
+      margin-bottom: 5px;
+      letter-spacing: 0.5px;
+    }
+
+    .subtitle {
+      color: #64748b;
+      font-size: 15px;
+      margin: 0;
+    }
+
+    /* Bwat pou pote logo yo anlè a */
+    .logos-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      margin: 15px 0 25px;
+      background: white;
+      padding: 12px 20px;
+      border-radius: 50px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    .logos-bar img {
+      height: 32px;
+      width: auto;
+      object-fit: contain;
+      transition: transform 0.2s;
+    }
+
+    .logos-bar img:hover {
+      transform: scale(1.15);
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 25px;
+      width: 100%;
+      max-width: 900px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      padding: 25px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+      text-align: left;
+      border-top: 4px solid var(--accent-color);
+      box-sizing: border-box;
+    }
+
+    .card h2 {
+      color: var(--primary-color);
+      font-size: 20px;
+      margin-top: 0;
+      padding-bottom: 12px;
+      border-bottom: 2px solid #f1f5f9;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .card-title-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .game-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      object-fit: cover;
+    }
+
+    label {
+      display: block;
+      margin: 15px 0 6px;
+      font-weight: 600;
+      font-size: 13px;
+      color: #475569;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      box-sizing: border-box;
+      font-size: 15px;
+      background-color: #f8fafc;
+      color: #1e293b;
+    }
+
+    input:focus, select:focus {
+      outline: none;
+      border-color: var(--accent-color);
+      background-color: #ffffff;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      background-color: var(--success-color);
+      color: white;
+      font-weight: 700;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 20px;
+      font-size: 16px;
+      box-shadow: 0 4px 12px rgba(22, 163, 74, 0.2);
+      transition: background-color 0.2s;
+    }
+
+    button:hover {
+      background-color: #15803d;
+    }
+
+    footer {
+      margin-top: 40px;
+      text-align: center;
+      font-size: 13px;
+      color: #94a3b8;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>EM TOP UP SHOP</h1>
+    <p class="subtitle">Sèvis rapid pou Recharges Jeux & Cartes Virtuelles</p>
+
+    <!-- BANNIÈRE DE LOGOS -->
+    <div class="logos-bar">
+      <img src="https://upload.wikimedia.org/wikipedia/en/a/a2/Free_Fire_logo.png" alt="Free Fire" title="Free Fire">
+      <img src="https://upload.wikimedia.org/wikipedia/en/9/9f/Pubg_mobile_logo.png" alt="PUBG Mobile" title="PUBG Mobile">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard" title="Mastercard">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="Visa" title="Visa">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/b/b0/Apple_Pay_logo.svg" alt="Apple Pay" title="Apple Pay">
+    </div>
+  </header>
+
+  <div class="container">
+    
+    <!-- SECTION 1 : RECHARGES JEUX -->
+    <div class="card">
+      <h2>
+        <div class="card-title-left">
+          <img id="game-logo" src="https://upload.wikimedia.org/wikipedia/en/a/a2/Free_Fire_logo.png" class="game-icon" alt="Logo">
+          <span>Recharges Jeux</span>
+        </div>
+      </h2>
+      
+      <label for="game-select">Choisir le jeu :</label>
+      <select id="game-select" onchange="changerJeu()">
+        <option value="Free Fire">Free Fire</option>
+        <option value="PUBG Mobile">PUBG Mobile</option>
+        <option value="eFootball">eFootball (eCoins)</option>
+      </select>
+
+      <label for="player-id">ID du Joueur (Player ID) :</label>
+      <input type="text" id="player-id" placeholder="Ex: 123456789" required>
+
+      <label for="game-phone">Numéro Téléphone WhatsApp :</label>
+      <input type="tel" id="game-phone" placeholder="Ex: +509 3123 4567" required>
+
+      <label for="game-package">Choisir l'offre :</label>
+      <select id="game-package">
+        <!-- Rempli automatiquement via JavaScript -->
+      </select>
+
+      <label for="game-payment">Moyen de paiement :</label>
+      <select id="game-payment">
+        <option value="Moncash">Moncash</option>
+        <option value="Natcash">Natcash</option>
+      </select>
+
+      <button onclick="commanderJeu()">Commander via WhatsApp</button>
+    </div>
+
+    <!-- SECTION 2 : CARTES ET SERVICES FINANCIERS -->
+    <div class="card" style="border-top-color: #8b5cf6;">
+      <h2>
+        <div class="card-title-left">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" class="game-icon" alt="Cartes">
+          <span>Cartes & Merou</span>
+        </div>
+      </h2>
+      
+      <label for="card-select">Type de service :</label>
+      <select id="card-select">
+        <option value="Carte Mastercard Virtuelle">Carte Mastercard Virtuelle</option>
+        <option value="Carte Visa Virtuelle">Carte Visa Virtuelle</option>
+        <option value="Recharge Merou">Recharge Merou</option>
+        <option value="Apple Pay / Gift Card">Carte Cadeau Apple / Apple Pay</option>
+      </select>
+
+      <label for="card-account">Compte / ID / Wallet (si nécessaire) :</label>
+      <input type="text" id="card-account" placeholder="ID Merou, Email ou Adrès">
+
+      <label for="card-phone">Numéro Téléphone WhatsApp :</label>
+      <input type="tel" id="card-phone" placeholder="Ex: +509 3123 4567" required>
+
+      <label for="card-amount">Montant souhaité ($ USD) :</label>
+      <select id="card-amount">
+        <option value="5$ USD">5$ USD</option>
+        <option value="10$ USD">10$ USD</option>
+        <option value="25$ USD">25$ USD</option>
+        <option value="50$ USD">50$ USD</option>
+        <option value="100$ USD">100$ USD</option>
+      </select>
+
+      <label for="card-payment">Moyen de paiement :</label>
+      <select id="card-payment">
+        <option value="Moncash">Moncash</option>
+        <option value="Natcash">Natcash</option>
+      </select>
+
+      <button onclick="commanderCarte()" style="background-color: #8b5cf6;">Commander via WhatsApp</button>
+    </div>
+
+  </div>
+
+  <footer>
+    &copy; 2026 EM TOP UP SHOP. Tous droits réservés.
+  </footer>
+
+  <script>
+    // Liste des packs pour chaque jeu
+    const packs = {
+      "Free Fire": ["100 Diamants", "530 Diamants", "1080 Diamants", "2200 Diamants"],
+      "PUBG Mobile": ["60 UC", "325 UC", "660 UC", "1800 UC"],
+      "eFootball": ["130 Pièces", "550 Pièces", "1040 Pièces", "2130 Pièces"]
+    };
+
+    // Logos pour chaque jeu
+    const gameLogos = {
+      "Free Fire": "https://upload.wikimedia.org/wikipedia/en/a/a2/Free_Fire_logo.png",
+      "PUBG Mobile": "https://upload.wikimedia.org/wikipedia/en/9/9f/Pubg_mobile_logo.png",
+      "eFootball": "https://cdn-icons-png.flaticon.com/512/5327/5327072.png"
+    };
+
+    function changerJeu() {
+      const jeu = document.getElementById('game-select').value;
+      const selectPack = document.getElementById('game-package');
+      const imgLogo = document.getElementById('game-logo');
+
+      // Update logo
+      imgLogo.src = gameLogos[jeu];
+
+      // Update packs
+      selectPack.innerHTML = "";
+      packs[jeu].forEach(pack => {
+        const option = document.createElement('option');
+        option.value = pack;
+        option.textContent = pack;
+        selectPack.appendChild(option);
+      });
+    }
+
+    changerJeu();
+
+    // Remplacer avec votre numéro WhatsApp
+    const monNumeroWhatsApp = "50900000000";
+
+    function commanderJeu() {
+      const jeu = document.getElementById('game-select').value;
+      const id = document.getElementById('player-id').value;
+      const phone = document.getElementById('game-phone').value;
+      const pack = document.getElementById('game-package').value;
+      const paiement = document.getElementById('game-payment').value;
+
+      if (!id) {
+        alert('Veuillez saisir votre ID Joueur.');
+        return;
+      }
+      if (!phone) {
+        alert('Veuillez saisir votre numéro WhatsApp.');
+        return;
+      }
+
+      const msg = `Bonjour EM TOP UP SHOP, je souhaite commander :\n- Jeu : ${jeu}\n- Offre : ${pack}\n- ID Joueur : ${id}\n- Mon WhatsApp : ${phone}\n- Mode de paiement : ${paiement}`;
+      window.open(`https://wa.me/${monNumeroWhatsApp}?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+
+    function commanderCarte() {
+      const service = document.getElementById('card-select').value;
+      const account = document.getElementById('card-account').value;
+      const phone = document.getElementById('card-phone').value;
+      const montant = document.getElementById('card-amount').value;
+      const paiement = document.getElementById('card-payment').value;
+
+      if (!phone) {
+        alert('Veuillez saisir votre numéro WhatsApp.');
+        return;
+      }
+
+      let msg = `Bonjour EM TOP UP SHOP, je souhaite commander :\n- Service : ${service}\n- Montant : ${montant}\n- Mon WhatsApp : ${phone}\n- Mode de paiement : ${paiement}`;
+      if (account) {
+        msg += `\n- Compte/ID : ${account}`;
+      }
+
+      window.open(`https://wa.me/${monNumeroWhatsApp}?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+  </script>
+
+</body>
+</html>
+
+lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -653,10 +1002,10 @@ function sendOrder(event){
 
     <!-- SECTION 2 : KART AK SÈVIS -->
     <div class="card">
-      <h2>💳 Kat & Sèvis Vityèl</h2>
+      <h2>💳 Kat & rcahj meru</h2>
       
       <label for="card-select">Kalite sèvis :</label>
-      <select id="card-select">
+      <select id="card-email">
         <option value="Carte Mastercard">Recharge Mastercard Vityèl</option>
         <option value="Apple Pay / Gift Card">Kat Kado Apple (iTunes)</option>
       </select>
