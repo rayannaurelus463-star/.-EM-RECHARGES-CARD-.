@@ -1,0 +1,738 @@
+<!DOCTYPE html><html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TOP UP GAME</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#0b0b16;color:white}
+header{background:#15152a;padding:20px;text-align:center;border-bottom:2px solid #8b5cf6}
+header h1{color:#a78bfa;margin:0}
+header p{color:#ccc}
+.hero{text-align:center;padding:35px 15px}
+.hero h2{font-size:30px}
+.hero span{color:#a78bfa}
+.games{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:15px;padding:15px;max-width:900px;margin:auto}
+.card{background:#19192c;border:1px solid #343451;border-radius:15px;padding:20px 10px;text-align:center}
+.card h3{margin:10px 0}
+.card p{color:#ccc;font-size:14px}
+button{background:#8b5cf6;color:white;border:0;border-radius:8px;padding:12px 18px;font-weight:bold;cursor:pointer}
+button:hover{background:#7041d8}
+.order{max-width:500px;margin:30px auto;padding:20px;background:#19192c;border-radius:15px}
+input,select{width:100%;padding:12px;margin:8px 0 15px;border-radius:7px;border:1px solid #444;background:#0b0b16;color:white}
+label{font-size:14px}
+footer{text-align:center;padding:25px;color:#aaa}
+</style>
+</head>
+<body>
+<header>
+<h1>🎮 TOP UP GAME</h1>
+<p>Recharge tes jeux préférés !</p>
+</header><section class="hero">
+<h2>Recharge tes jeux <span>facilement</span></h2>
+<p>Choisis ton jeu et prépare ta commande.</p>
+</section><section class="games">
+<div class="card">
+<div style="font-size:45px">💎</div>
+<h3>Free Fire</h3>
+<p>Diamonds</p>
+<button onclick="chooseGame('Free Fire')">Choisir</button>
+</div>
+<div class="card">
+<div style="font-size:45px">🎯</div>
+<h3>PUBG Mobile</h3>
+<p>UC</p>
+<button onclick="chooseGame('PUBG Mobile')">Choisir</button>
+</div>
+<div class="card">
+<div style="font-size:45px">⚔️</div>
+<h3>Mobile Legends</h3>
+<p>Diamonds</p>
+<button onclick="chooseGame('Mobile Legends')">Choisir</button>
+</div>
+<div class="card">
+<div style="font-size:45px">🚀</div>
+<h3>Call of Duty Mobile</h3>
+<p>CP</p>
+<button onclick="chooseGame('Call of Duty Mobile')">Choisir</button>
+</div>
+</section><section class="order" id="commande">
+<h2>🛒 Passer une commande</h2>
+<form onsubmit="sendOrder(event)">
+<label>Jeu choisi</label>
+<select id="game" required>
+<option value="">Choisir un jeu</option>
+<option>Free Fire</option>
+<option>PUBG Mobile</option>
+<option>Mobile Legends</option>
+<option>Call of Duty Mobile</option>
+</select><label>ID du joueur</label>
+<input id="player" required placeholder="Entre ton ID de joueur">
+
+<label>Quantité souhaitée</label>
+<input id="quantity" required placeholder="Exemple : 100 Diamonds">
+
+<label>Ton contact</label>
+<input id="contact" required placeholder="WhatsApp ou téléphone">
+
+<label>Méthode de paiement</label>
+<select id="payment" required>
+
+<option value="">Choisir un moyen de paiement</option>
+<option>MonCash</option>
+<option>NatCash</option>
+<option>Carte bancaire (à configurer)</option>
+</select><button type="submit">Préparer ma commande</button>
+
+</form>
+<p id="result"></p>
+</section><footer>© 2026 TOP UP GAME — Tous droits réservés.</footer><script>
+function chooseGame(name){
+ document.getElementById('game').value=name;
+ document.getElementById('commande').scrollIntoView({behavior:'smooth'});
+}
+function sendOrder(event){
+ event.preventDefault();
+ const order={
+ jeu:document.getElementById('game').value,
+ joueur:document.getElementById('player').value,
+ quantite:document.getElementById('quantity').value,
+ contact:document.getElementById('contact').value,
+ paiement:document.getElementById('payment').value
+ };
+ document.getElementById('result').textContent=
+ 'Commande préparée pour '+order.jeu+
+ '. Cette démo ne transmet pas encore ta commande au vendeur. Contacte le vendeur pour confirmer le paiement.';
+}
+</script></body>
+</html>
+<!DOCTYPE html><html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TOP UP GAME</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#0b0b16;color:white}
+header{background:#15152a;padding:20px;text-align:center;border-bottom:2px solid #8b5cf6}
+header h1{color:#a78bfa;margin:0}
+header p{color:#ccc}
+.hero{text-align:center;padding:35px 15px}
+.hero h2{font-size:30px}
+.hero span{color:#a78bfa}
+.games{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:15px;padding:15px;max-width:900px;margin:auto}
+.card{background:#19192c;border:1px solid #343451;border-radius:15px;padding:20px 10px;text-align:center}
+.card h3{margin:10px 0}
+.card p{color:#ccc;font-size:14px}
+button{background:#8b5cf6;color:white;border:0;border-radius:8px;padding:12px 18px;font-weight:bold;cursor:pointer}
+button:hover{background:#7041d8}
+.order{max-width:500px;margin:30px auto;padding:20px;background:#19192c;border-radius:15px}
+input,select{width:100%;padding:12px;margin:8px 0 15px;border-radius:7px;border:1px solid #444;background:#0b0b16;color:white}
+label{font-size:14px}
+footer{text-align:center;padding:25px;color:#aaa}
+</style>
+</head>
+<body>
+<header>
+<h1>🎮 TOP UP GAME</h1>
+<p>Recharge tes jeux préférés !</p>
+</header><section class="hero">
+<h2>Recharge tes jeux <span>facilement</span></h2>
+<p>Choisis ton jeu et prépare ta commande.</p>
+</section><section class="games">
+<div class="card">
+<div style="font-size:45px">💎</div>
+<h3>Free Fire</h3>
+<p>Diamonds</p>
+<button onclick="chooseGame('Free Fire')">Choisir</button>
+</div>
+<div class="card">
+<div style="font-size:45px">🎯</div>
+<h3>PUBG Mobile</h3>
+<p>UC</p>
+<button onclick="chooseGame('PUBG Mobile')">Choisir</button>
+</div>
+<div class="card">
+<div style="font-size:45px">⚔️</div>
+<h3>Mobile Legends</h3>
+<p>Diamonds</p>
+<button onclick="chooseGame('Mobile Legends')">Choisir</button>
+</div>
+<div class="card">
+<div style="font-size:45px">🚀</div>
+<h3>Call of Duty Mobile</h3>
+<p>CP</p>
+<button onclick="chooseGame('Call of Duty Mobile')">Choisir</button>
+</div>
+</section><section class="order" id="commande">
+<h2>🛒 Passer une commande</h2>
+<form onsubmit="sendOrder(event)">
+<label>Jeu choisi</label>
+<select id="game" required>
+<option value="">Choisir un jeu</option>
+<option>Free Fire</option>
+<option>PUBG Mobile</option>
+<option>Mobile Legends</option>
+<option>Call of Duty Mobile</option>
+</select><label>ID du joueur</label>
+<input id="player" required placeholder="Entre ton ID de joueur">
+
+<label>Quantité souhaitée</label>
+<input id="quantity" required placeholder="Exemple : 100 Diamonds">
+
+<label>Ton contact</label>
+<input id="contact" required placeholder="WhatsApp ou téléphone">
+
+<label>Méthode de paiement</label>
+<select id="payment" required>
+
+<option value="">Choisir un moyen de paiement</option>
+<option>MonCash</option>
+<option>NatCash</option>
+<option>Carte bancaire (à configurer)</option>
+</select><button type="submit">Préparer ma commande</button>
+
+</form>
+<p id="result"></p>
+</section><footer>© 2026 TOP UP GAME — Tous droits réservés.</footer><script>
+function chooseGame(name){
+ document.getElementById('game').value=name;
+ document.getElementById('commande').scrollIntoView({behavior:'smooth'});
+}
+function sendOrder(event){
+ event.preventDefault();
+ const order={
+ jeu:document.getElementById('game').value,
+ joueur:document.getElementById('player').value,
+ quantite:document.getElementById('quantity').value,
+ contact:document.getElementById('contact').value,
+ paiement:document.getElementById('payment').value
+ };
+ document.getElementById('result').textContent=
+ 'Commande préparée pour '+order.jeu+
+ '. Cette démo ne transmet pas encore ta commande au vendeur. Contacte le vendeur pour confirmer le paiement.';
+}
+</script></body>
+</html>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EM TOP UP SHOP - Recharge Free Fire & eFootball</title>
+  <style>
+    body { font-family: Arial, sans-serif; background-color: #f4f6f9; margin: 0; padding: 20px; text-align: center; }
+    h1 { color: #1a73e8; }
+    .card { background: white; max-width: 400px; margin: 20px auto; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+    label { display: block; margin: 10px 0 5px; text-align: left; font-weight: bold; }
+    input, select, button { width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
+    button { background-color: #25D366; color: white; font-weight: bold; border: none; cursor: pointer; font-size: 16px; }
+    button:hover { background-color: #1eb854; }
+  </style>
+</head>
+<body>
+
+  <h1>EM TOP UP SHOP</h1>
+  <p>Achetez vos recharges de jeux rapidement via Moncash & Natcash !</p>
+
+  <div class="card">
+    <h2>Recharge Free Fire</h2>
+    
+    <label for="player-id">ID du Joueur (Player ID) :</label>
+    <input type="text" id="player-id" placeholder="Ex: 123456789" required>
+
+    <label for="package">Choisissez l'offre :</label>
+    <select id="package">
+      <option value="100 Diamants">100 Diamants</option>
+      <option value="530 Diamants">530 Diamants</option>
+      <option value="1080 Diamants">1080 Diamants</option>
+    </select>
+
+    <label for="payment">Moyen de paiement :</label>
+    <select id="payment">
+      <option value="Moncash">Moncash</option>
+      <option value="Natcash">Natcash</option>
+    </select>
+
+    <button onclick="passerCommande()">Commander via WhatsApp</button>
+  </div>
+
+  <script>
+    function passerCommande() {
+      const id = document.getElementById('player-id').value;
+      const offre = document.getElementById('package').value;
+      const paiement = document.getElementById('payment').value;
+
+      if (!id) {
+        alert('Veuillez entrer votre Player ID');
+        return;
+      }
+
+      // Remplacez le numéro ci-dessous par votre numéro WhatsApp (ex: 50912345678)
+      const monNumero = "50900000000"; 
+      const message = `Bonjour EM TOP UP SHOP, je souhaite commander :\n- Produit : ${offre}\n- Player ID : ${id}\n- Mode de paiement : ${paiement}`;
+
+      window.open(`https://wa.me/${monNumero}?text=${encodeURIComponent(message)}`);
+    }
+  </script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EM TOP UP SHOP - Recharge Free Fire & eFootball</title>
+  <style>
+    body { font-family: Arial, sans-serif; background-color: #f4f6f9; margin: 0; padding: 20px; text-align: center; }
+    h1 { color: #1a73e8; }
+    .card { background: white; max-width: 400px; margin: 20px auto; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+    label { display: block; margin: 10px 0 5px; text-align: left; font-weight: bold; }
+    input, select, button { width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
+    button { background-color: #25D366; color: white; font-weight: bold; border: none; cursor: pointer; font-size: 16px; }
+    button:hover { background-color: #1eb854; }
+  </style>
+</head>
+<body>
+
+  <h1>EM TOP UP SHOP</h1>
+  <p>Achetez vos recharges de jeux rapidement via Moncash & Natcash !</p>
+
+  <div class="card">
+    <h2>Recharge Free Fire</h2>
+    
+    <label for="player-id">ID du Joueur (Player ID) :</label>
+    <input type="text" id="player-id" placeholder="Ex: 123456789" required>
+
+    <label for="package">Choisissez l'offre :</label>
+    <select id="package">
+      <option value="100 Diamants">100 Diamants</option>
+      <option value="530 Diamants">530 Diamants</option>
+      <option value="1080 Diamants">1080 Diamants</option>
+    </select>
+
+    <label for="payment">Moyen de paiement :</label>
+    <select id="payment">
+      <option value="Moncash">Moncash</option>
+      <option value="Natcash">Natcash</option>
+    </select>
+
+    <button onclick="passerCommande()">Commander via WhatsApp</button>
+  </div>
+
+  <script>
+    function passerCommande() {
+      const id = document.getElementById('player-id').value;
+      const offre = document.getElementById('package').value;
+      const paiement = document.getElementById('payment').value;
+
+      if (!id) {
+        alert('Veuillez entrer votre Player ID');
+        return;
+      }
+
+      // Remplacez le numéro ci-dessous par votre numéro WhatsApp (ex: 50912345678)
+      const monNumero = "50900000000"; 
+      const message = `Bonjour EM TOP UP SHOP, je souhaite commander :\n- Produit : ${offre}\n- Player ID : ${id}\n- Mode de paiement : ${paiement}`;
+
+      window.open(`https://wa.me/${monNumero}?text=${encodeURIComponent(message)}`);
+    }
+  </script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EM TOP UP SHOP - Recharges & Cartes</title>
+  <style>
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f0f2f5; margin: 0; padding: 20px; text-align: center; }
+    h1 { color: #1a73e8; margin-bottom: 5px; }
+    .subtitle { color: #555; font-size: 14px; margin-bottom: 25px; }
+    .container { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; max-width: 900px; margin: 0 auto; }
+    .card { background: white; width: 100%; max-width: 380px; padding: 20px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); text-align: left; box-sizing: border-box; }
+    .card h2 { color: #2c3e50; font-size: 20px; margin-top: 0; border-bottom: 2px solid #eef2f5; padding-bottom: 10px; }
+    label { display: block; margin: 12px 0 5px; font-weight: 600; font-size: 14px; color: #333; }
+    input, select, button { width: 100%; padding: 12px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; font-size: 14px; }
+    button { background-color: #25D366; color: white; font-weight: bold; border: none; cursor: pointer; margin-top: 10px; font-size: 16px; transition: background 0.3s; }
+    button:hover { background-color: #1eb854; }
+  </style>
+</head>
+<body>
+
+  <h1>EM TOP UP SHOP</h1>
+  <p class="subtitle">Vos recharges de jeux et cartes prépayées via Moncash & Natcash</p>
+
+  <div class="container">
+    
+    <!-- SECTION 1 : RECHARGES JEUX -->
+    <div class="card">
+      <h2>🎮 Recharges Jeux</h2>
+      
+      <label for="game-select">Choisir le jeu :</label>
+      <select id="game-select" onchange="changerPacks()">
+        <option value="Free Fire">Free Fire</option>
+        <option value="eFootball">eFootball (eCoins)</option>
+      </select>
+
+      <label for="player-id">ID du Joueur (Player ID) :</label>
+      <input type="text" id="player-id" placeholder="Ex: 123456789" required>
+
+      <label for="game-package">Choisir l'offre :</label>
+      <select id="game-package">
+        <!-- Rempli dynamiquement en JS -->
+      </select>
+
+      <label for="game-payment">Mode de paiement :</label>
+      <select id="game-payment">
+        <option value="Moncash">Moncash</option>
+        <option value="Natcash">Natcash</option>
+      </select>
+
+      <button onclick="commanderJeu()">Commander le Jeu via WhatsApp</button>
+    </div>
+
+    <!-- SECTION 2 : CARTES ET SERVICES -->
+    <div class="card">
+      <h2>💳 Cartes & Services</h2>
+      
+      <label for="card-select">Type de service :</label>
+      <select id="card-select">
+        <option value="Carte Mastercard">Recharge Mastercard Virtuelle</option>
+        <option value="Apple Pay / Gift Card">Carte Cadeau Apple (iTunes)</option>
+      </select>
+
+      <label for="card-amount">Montant souhaité ($ USD) :</label>
+      <select id="card-amount">
+        <option value="5$ USD">5$ USD</option>
+        <option value="10$ USD">10$ USD</option>
+        <option value="25$ USD">25$ USD</option>
+        <option value="50$ USD">50$ USD</option>
+      </select>
+
+      <label for="card-payment">Mode de paiement :</label>
+      <select id="card-payment">
+        <option value="Moncash">Moncash</option>
+        <option value="Natcash">Natcash</option>
+      </select>
+
+      <button onclick="commanderCarte()">Commander la Carte via WhatsApp</button>
+    </div>
+
+  </div>
+
+  <script>
+    // Liste des offres pour chaque jeu
+    const packs = {
+      "Free Fire": ["100 Diamants", "530 Diamants", "1080 Diamants", "2200 Diamants"],
+      "eFootball": ["130 Pièces eFootball", "550 Pièces eFootball", "1040 Pièces eFootball", "2130 Pièces eFootball"]
+    };
+
+    function changerPacks() {
+      const jeu = document.getElementById('game-select').value;
+      const selectPack = document.getElementById('game-package');
+      selectPack.innerHTML = "";
+      
+      packs[jeu].forEach(pack => {
+        const option = document.createElement('option');
+        option.value = pack;
+        option.textContent = pack;
+        selectPack.appendChild(option);
+      });
+    }
+
+    // Charger les packs Free Fire au démarrage
+    changerPacks();
+
+    // Numéro WhatsApp (Remplacez avec votre numéro)
+    const monNumeroWhatsApp = "50900000000";
+
+    function commanderJeu() {
+      const jeu = document.getElementById('game-select').value;
+      const id = document.getElementById('player-id').value;
+      const pack = document.getElementById('game-package').value;
+      const paiement = document.getElementById('game-payment').value;
+
+      if (!id) {
+        alert('Veuillez saisir votre Player ID.');
+        return;
+      }
+
+      const msg = `Bonjour EM TOP UP SHOP, je souhaite commander :\n- Jeu : ${jeu}\n- Offre : ${pack}\n- Player ID : ${id}\n- Paiement : ${paiement}`;
+      window.open(`https://wa.me/${monNumeroWhatsApp}?text=${encodeURIComponent(msg)}`);
+    }
+
+    function commanderCarte() {
+      const service = document.getElementById('card-select').value;
+      const montant = document.getElementById('card-amount').value;
+      const paiement = document.getElementById('card-payment').value;
+
+      const msg = `Bonjour EM TOP UP SHOP, je souhaite commander :\n- Service : ${service}\n- Montant : ${montant}\n- Paiement : ${paiement}`;
+      window.open(`https://wa.me/${monNumeroWhatsApp}?text=${encodeURIComponent(msg)}`);
+    }
+  </script>
+
+</body>
+</html>
+ <!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EM TOP UP SHOP - Recharges & Cartes</title>
+  <style>
+    :root {
+      --primary-color: #0f172a; /* Ble fonse / Nwa modèn */
+      --accent-color: #2563eb;  /* Ble vif */
+      --success-color: #16a34a; /* Vèt WhatsApp / Siksè */
+      --bg-color: #f8fafc;
+      --card-bg: #ffffff;
+      --text-color: #334155;
+    }
+
+    body {
+      font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    h1 {
+      color: var(--primary-color);
+      font-size: 28px;
+      margin-bottom: 5px;
+      letter-spacing: 0.5px;
+    }
+
+    .subtitle {
+      color: #64748b;
+      font-size: 15px;
+      margin: 0;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 25px;
+      width: 100%;
+      max-width: 850px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      padding: 25px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+      text-align: left;
+      border-top: 4px solid var(--accent-color);
+      transition: transform 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+    }
+
+    .card h2 {
+      color: var(--primary-color);
+      font-size: 20px;
+      margin-top: 0;
+      padding-bottom: 12px;
+      border-bottom: 2px solid #f1f5f9;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    label {
+      display: block;
+      margin: 15px 0 6px;
+      font-weight: 600;
+      font-size: 13px;
+      color: #475569;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      box-sizing: border-box;
+      font-size: 15px;
+      background-color: #f8fafc;
+      color: #1e293b;
+      transition: border-color 0.2s, background-color 0.2s;
+    }
+
+    input:focus, select:focus {
+      outline: none;
+      border-color: var(--accent-color);
+      background-color: #ffffff;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      background-color: var(--success-color);
+      color: white;
+      font-weight: 700;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 20px;
+      font-size: 16px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 12px rgba(22, 163, 74, 0.2);
+      transition: background-color 0.2s, box-shadow 0.2s;
+    }
+
+    button:hover {
+      background-color: #15803d;
+      box-shadow: 0 6px 15px rgba(22, 163, 74, 0.3);
+    }
+
+    footer {
+      margin-top: 40px;
+      text-align: center;
+      font-size: 13px;
+      color: #94a3b8;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>EM TOP UP SHOP</h1>
+    <p class="subtitle">Sèvis rapid ak sekirize pou recharges jwèt ak kat prépayé</p>
+  </header>
+
+  <div class="container">
+    
+    <!-- SECTION 1 : RECHARGES JEUX -->
+    <div class="card">
+      <h2>🎮 Recharges Jwèt</h2>
+      
+      <label for="game-select">Chwazi jwèt la :</label>
+      <select id="game-select" onchange="changerPacks()">
+        <option value="Free Fire">Free Fire</option>
+        <option value="eFootball">eFootball (eCoins)</option>
+      </select>
+
+      <label for="player-id">ID Jwè a (Player ID) :</label>
+      <input type="text" id="player-id" placeholder="Eg: 123456789" required>
+
+      <label for="game-package">Chwazi Pakèt la :</label>
+      <select id="game-package">
+        <!-- Ranpli otomatikman an JavaScript -->
+      </select>
+
+      <label for="game-payment">Mwayèn Peman :</label>
+      <select id="game-payment">
+        <option value="Moncash">Moncash</option>
+        <option value="Natcash">Natcash</option>
+      </select>
+
+      <button onclick="commanderJeu()">Kòmande sou WhatsApp</button>
+    </div>
+
+    <!-- SECTION 2 : KART AK SÈVIS -->
+    <div class="card">
+      <h2>💳 Kat & Sèvis Vityèl</h2>
+      
+      <label for="card-select">Kalite sèvis :</label>
+      <select id="card-select">
+        <option value="Carte Mastercard">Recharge Mastercard Vityèl</option>
+        <option value="Apple Pay / Gift Card">Kat Kado Apple (iTunes)</option>
+      </select>
+
+      <label for="card-amount">Montan an dola ($ USD) :</label>
+      <select id="card-amount">
+        <option value="5$ USD">5$ USD</option>
+        <option value="10$ USD">10$ USD</option>
+        <option value="25$ USD">25$ USD</option>
+        <option value="50$ USD">50$ USD</option>
+      </select>
+
+      <label for="card-payment">Mwayèn Peman :</label>
+      <select id="card-payment">
+        <option value="Moncash">Moncash</option>
+        <option value="Natcash">Natcash</option>
+      </select>
+
+      <button onclick="commanderCarte()">Kòmande sou WhatsApp</button>
+    </div>
+
+  </div>
+
+  <footer>
+    &copy; 2026 EM TOP UP SHOP. Tout dwa rezève.
+  </footer>
+
+  <script>
+    const packs = {
+      "Free Fire": ["100 Diamants", "530 Diamants", "1080 Diamants", "2200 Diamants"],
+      "eFootball": ["130 Pièces eFootball", "550 Pièces eFootball", "1040 Pièces eFootball", "2130 Pièces eFootball"]
+    };
+
+    function changerPacks() {
+      const jeu = document.getElementById('game-select').value;
+      const selectPack = document.getElementById('game-package');
+      selectPack.innerHTML = "";
+      
+      packs[jeu].forEach(pack => {
+        const option = document.createElement('option');
+        option.value = pack;
+        option.textContent = pack;
+        selectPack.appendChild(option);
+      });
+    }
+
+    changerPacks();
+
+    // Ranplase ak nimewo WhatsApp ou a
+    const monNumeroWhatsApp = "50900000000";
+
+    function commanderJeu() {
+      const jeu = document.getElementById('game-select').value;
+      const id = document.getElementById('player-id').value;
+      const pack = document.getElementById('game-package').value;
+      const paiement = document.getElementById('game-payment').value;
+
+      if (!id) {
+        alert('Tanpri antre ID jwè ou a (Player ID).');
+        return;
+      }
+
+      const msg = `Bonjou EM TOP UP SHOP, m ta renmen kòmande :\n- Jwèt : ${jeu}\n- Pakèt : ${pack}\n- Player ID : ${id}\n- Peman : ${paiement}`;
+      window.open(`https://wa.me/${monNumeroWhatsApp}?text=${encodeURIComponent(msg)}`);
+    }
+
+    function commanderCarte() {
+      const service = document.getElementById('card-select').value;
+      const montant = document.getElementById('card-amount').value;
+      const paiement = document.getElementById('card-payment').value;
+
+      const msg = `Bonjou EM TOP UP SHOP, m ta renmen kòmande :\n- Sèvis : ${service}\n- Montan : ${montant}\n- Peman : ${paiement}`;
+      window.open(`https://wa.me/${monNumeroWhatsApp}?text=${encodeURIComponent(msg)}`);
+    }
+  </script>
+
+</body>
+</html>
+    
